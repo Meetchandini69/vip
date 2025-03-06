@@ -470,6 +470,7 @@ h1, h2, h3, h4, h5, h6 {
   top: 0;
   left: 0;
   right: 0;
+  z-index: -1;
 }
 
 #hero .container {
@@ -482,7 +483,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-#hero h1 {
+#hero h1, #hero h2 {
   display: inline-block;
   margin: 0;
   font-size: 48px;
@@ -498,7 +499,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #7A6848;
 }
 
-#hero h2 {
+#hero p {
   color: #eee;
   margin: 41px 0 41px;
   font-size: 22px;
