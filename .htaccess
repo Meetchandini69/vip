@@ -1,0 +1,62 @@
+# Leverage browser caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+
+    # Images
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+
+    # CSS, JS, and HTML
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    ExpiresByType text/html "access plus 1 day"
+</IfModule>
+# Enable Gzip Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/x-javascript application/javascript application/json
+</IfModule>
+# Keep-alive (Improves performance by keeping the connection open)
+<IfModule mod_headers.c>
+    Header set Connection keep-alive
+</IfModule>
+# CDN (Cloudflare) optimization
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Headers "X-Requested-With, Content-Type, Origin"
+</IfModule>
+# Set expiry times for static resources
+<IfModule mod_headers.c>
+    <FilesMatch "\.(jpg|jpeg|png|gif|js|css|ico|webp|woff|woff2|ttf|svg)$">
+        Header set Cache-Control "public, max-age=31536000"
+    </FilesMatch>
+</IfModule>
+# Disable ETags to improve caching and reduce HTTP requests
+Header unset ETag
+FileETag None
+# Serve WebP images if supported by the browser
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+    RewriteRule ^(.*)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
+</IfModule>
+# Enable HTTP/2 (if supported by your hosting environment)
+<IfModule http2_module>
+    Protocols h2 http/1.1
+</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Ensure the request is HTTPS (if not, redirect to HTTPS)
+    RewriteCond %{HTTPS} off
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirect non-www to www
+    RewriteCond %{HTTP_HOST} ^vipnightbeauties.\.com [NC]
+    RewriteRule ^ https://www.vipnightbeauties..com%{REQUEST_URI} [L,R=301]
+</IfModule>

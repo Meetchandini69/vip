@@ -27,6 +27,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Playfair Display", serif;
 }
 
+h2 {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.3rem;
+}
+h4 {
+  font-size: 1.1rem;
+}
+h5 {
+  font-size: 1rem;
+}
+h6 {
+  font-size: 0.875rem;
+}
+
 .t-2 {
   top: 10px;
 }
@@ -935,6 +951,65 @@ section {
   padding: 60px 0;
   overflow: hidden;
 }
+/* inner pages */
+
+.inner-wrapper {
+  background-color: #1d1b16;
+}
+.inner-page .inner-page-content h2 {
+  color: #fee7f1;
+}
+.inner-page .inner-page-content p {
+  color: #ffffff;
+}
+.listing-wrapper .listing-card {
+  background-color: rgba(255,255,255,0.077);
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+}
+.listing-wrapper .listing-card .img-blk {
+  max-width: 230px;
+  overflow: hidden;
+  max-height: 299px;
+}
+.listing-wrapper .listing-card .img-blk img {
+  width: 100%;
+  object-fit: cover;
+}
+.listing-wrapper .listing-card .content-wrapper {
+  padding: 15px;
+  flex: 1 0 0;
+}
+.listing-wrapper .listing-card .content-wrapper h3, .listing-wrapper .listing-card .content-wrapper h4 {
+  margin-bottom: 15px;
+  color: #fee7f1;
+}
+.listing-wrapper .listing-card .content-wrapper p {
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+.listing-wrapper .listing-card .content-wrapper .tags-blk {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+.listing-wrapper .listing-card .content-wrapper .tags-blk a {
+  background: #FFA31A;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #ffffff;
+}
+.listing-wrapper .listing-card .content-wrapper .cta-blk {
+ display: flex;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 15px; 
+}
+.listing-wrapper .listing-card .content-wrapper .cta-blk a {
+  
+}
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -942,6 +1017,29 @@ section {
   padding: 15px 0;
   background: #1d1b16;
   margin-top: 110px;
+  position: relative;
+  z-index: 5;
+  overflow: hidden;
+}
+.breadcrumbs:before {
+  background: url(../img/shape-left.png) no-repeat left top;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.breadcrumbs:after {
+  background: url(../img/shape-right.png) no-repeat right bottom;
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
 }
 
 @media (max-width: 992px) {
@@ -1188,13 +1286,14 @@ section {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
-.menu .menu-content a {
+.menu .menu-content p {
   padding-right: 10px;
   background: #1a1814;
   position: relative;
   z-index: 3;
   font-weight: 700;
   color: white;
+  margin-bottom: 0;
   transition: 0.3s;
 }
 
