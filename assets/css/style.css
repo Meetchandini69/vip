@@ -28,16 +28,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 h3 {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
 }
 h4 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 h5 {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 h6 {
   font-size: 0.875rem;
@@ -917,6 +917,9 @@ h6 {
   padding-bottom: 40px;
 }
 
+aside .section-title {
+  padding-bottom: 0px;
+}
 .section-title h2 {
   font-size: 14px;
   font-weight: 500;
@@ -931,7 +934,7 @@ h6 {
 
 .section-title h2::after {
   content: "";
-  width: 120px;
+  width: 50px;
   height: 1px;
   display: inline-block;
   background: rgba(255, 255, 255, 0.2);
