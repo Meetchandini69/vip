@@ -51,12 +51,14 @@ FileETag None
 </IfModule>
 <IfModule mod_rewrite.c>
     RewriteEngine On
-
+    RewriteCond %{HTTP_HOST} ^vipnightbeauties.com [NC]
+    RewriteRule ^(.*)$ https://www.vipnightbeauties.com/$1 [L,R=301]
+    # RewriteEngine On
     # Ensure the request is HTTPS (if not, redirect to HTTPS)
-    RewriteCond %{HTTPS} off
-    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
     # Redirect non-www to www
-    RewriteCond %{HTTP_HOST} ^vipnightbeauties.\.com [NC]
-    RewriteRule ^ https://www.vipnightbeauties..com%{REQUEST_URI} [L,R=301]
+    # RewriteCond %{HTTP_HOST} ^vipnightbeauties.\.com [NC]
+    # RewriteRule ^ https://www.vipnightbeauties..com%{REQUEST_URI} [L,R=301]
 </IfModule>
