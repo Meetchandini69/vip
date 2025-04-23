@@ -38,8 +38,11 @@ FileETag None
     # Ensure the request is HTTPS (if not, redirect to HTTPS)
     # RewriteCond %{HTTPS} off
     # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
     RewriteEngine On
-    RewriteCond %{HTTP_HOST} ^vipnightbeauties.com [NC]
+
+    # Redirect non-www to www
+    RewriteCond %{HTTP_HOST} ^vipnightbeauties\.com [NC]
     RewriteRule ^(.*)$ https://www.vipnightbeauties.com/$1 [L,R=301]
 
     # Redirect non-www to www
