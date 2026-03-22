@@ -19056,6 +19056,9 @@ h6 {
   margin-bottom: 0;
 }
 .blog-section .rightsidebar .card .tags li {
+  display: inline-block;
+}
+.blog-section .rightsidebar .card .tags li a {
   background-color: #F1F1F1;
   color: #828282;
   padding: 9px 19px;
@@ -19070,7 +19073,7 @@ h6 {
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
-.blog-section .rightsidebar .card .tags li:hover {
+.blog-section .rightsidebar .card .tags li a:hover {
   background-color: #efb100;
   color: #ffffff;
   border: 1px solid #efb100;
