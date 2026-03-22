@@ -3223,9 +3223,6 @@ h6 {
   position: fixed;
   z-index: 999;
 }
-.hero-sec-main .header-two.header-fixed .navbar-brand {
-  width: 50px;
-}
 .hero-sec-main .header-two.header-fixed .header-two-top {
   display: none;
 }
