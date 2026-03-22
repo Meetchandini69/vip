@@ -1,0 +1,75 @@
+@use "../base/colors";
+@use "../base/typography";
+@use "../utils/mixins";
+
+/*-----------------
+    8. Breadcrumb
+-----------------------*/
+
+.breadcrumb-bar {
+    background: #efb100;
+    padding: 60px 0 60px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    color: #b16714;
+    @include mixins.respond-below(custom991) {
+        padding: 50px 0 50px;
+     } 
+    &:before {
+		content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 393px;
+        height: 334px;
+        background-size: cover;
+        @include mixins.respond-below(custom991) {
+            display: none;
+        } 
+	}
+    &:after {
+		content: "";
+        position: absolute;
+        bottom: 50px;
+        right: 130px;
+        width: 97px;
+        height: 102px;
+        background-size: cover;
+        @include mixins.respond-below(custom991) {
+           display: none;
+        } 
+	}
+    .breadcrumb-title {
+        font-weight: 700;
+        color: #b16714;
+        font-size: typography.$font__size__36;
+        @include mixins.margin-padding(0 0 15px, null);
+        @include mixins.respond-below(custom991) {
+            font-size: typography.$font__size__32;
+        } 
+    }
+    .breadcrumb {
+        justify-content: center;
+        margin: 0;
+        li {
+            a {
+                color: #b16714;
+            }
+        }
+        &.active {
+            color: #b16714;
+        }
+      }
+    .breadcrumb-item+.breadcrumb-item {
+        &::before {
+            color: #b16714;
+        }
+    }
+    .breadcrumb-item.active {
+        color: #b16714;
+        font-weight: bold;
+    }
+      
+      
+}

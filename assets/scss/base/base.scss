@@ -1,0 +1,47 @@
+@use "../utils/mixins";
+@use "colors";
+@use "typography";
+
+/*-----------------
+	3. General
+-----------------------*/
+
+body{
+	font-family: typography.$body__font__family;
+	font-size: typography.$body__font__size;
+	color: #ffffff;
+	background: #070000;
+	overflow-x: hidden;
+	@include mixins.respond-below(custom991){
+		font-size:typography.$font__size__15;
+	}
+	background-color: #0a0e17;  /* Your dark base color */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+a {
+	cursor: pointer;
+	@include mixins.transition(all 0.2s ease);
+	&:hover{
+		@include mixins.transition(all 0.2s ease);
+	}
+	&:focus {
+		outline: 0;
+	}
+}
+p {
+	&:last-child{
+		margin-bottom:0;
+	}
+}
+strong{
+	font-weight: typography.$bold;
+}
+.form-control {
+	&:focus {
+		border-color: #bbb;
+		box-shadow: none;
+		outline: 0 none;
+	}
+    
+}

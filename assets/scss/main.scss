@@ -1,0 +1,86 @@
+/*
+Author       : Classified
+Template Name: Classified - Bootstrap Template
+Version      : 1.0
+*/
+
+/*============================
+ [Table of CSS]
+
+1. Reset
+2. Typography
+3. General
+4. Grid
+5. Buttons
+6. Header
+7. Footer
+8. Breadcrumb
+9. Select
+10. Table
+11. Home
+12. Login
+13. Common
+14. Faq
+15. Pricing
+16. Gallery
+17. Our Team
+18. Contact
+19. Invoice
+20. Blog
+21. Testimonials
+22. About Us
+23. Product Details
+24. Products
+25. Users
+
+========================================*/
+
+
+// UTILS
+@import "utils/variables";
+@import "utils/mixins";
+
+//  BASE
+@import "base/reset";
+@import "base/typography";
+@import "base/colors"; 
+@import "base/base";
+
+// COMPONENTS
+@import "components/button";
+@import "components/background";
+
+
+// LAYOUT 
+@import "layout/content";
+@import "layout/header";
+@import "layout/header-2";
+@import "layout/header-3";
+@import "layout/footer";
+@import "layout/breadcrumb";
+@import "layout/select";
+@import "layout/table";
+@import "layout/footer-2";
+
+// PAGES
+@import "pages/home";
+@import "pages/home-2";
+@import "pages/home-3";
+@import "pages/home-4";
+@import "pages/login";
+@import "pages/common";
+@import "pages/faq";
+@import "pages/pricing";
+@import "pages/gallery";
+@import "pages/our-team";
+@import "pages/contact";
+@import "pages/invoice";
+@import "pages/blog";
+@import "pages/testimonial";
+@import "pages/about-us";
+@import "pages/detail-page";
+@import "pages/products";
+@import "pages/users";
+@import "pages/booking";
+@import "pages/booking-calendar";
+@import "pages/marquee";
