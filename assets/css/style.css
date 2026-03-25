@@ -1899,7 +1899,7 @@ h6 {
     display: block;
     width: 100%;
     text-align: center;
-    max-width: 50px;
+    max-width: 122px;
   }
 }
 .header .navbar-header #mobile_btn {
@@ -23951,14 +23951,22 @@ h6 {
     max-width: 100%;
   }
 }
-.listview-car .card .blog-img img {
+.listview-car .card .blog-img a {
+  width: 230px;
+  height: 180px;
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.listview-car .card .blog-img a img {
   border-radius: 10px;
   -webkit-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  object-fit: cover;
 }
 @media (max-width: 767.96px) {
-  .listview-car .card .blog-img img {
+  .listview-car .card .blog-img a img {
     width: 100%;
   }
 }

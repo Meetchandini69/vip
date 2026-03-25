@@ -681,14 +681,23 @@
                 width: 100%;
                 max-width: 100%;
             }
-            img {
+            a {
+                width: 230px;
+                height: 180px;
+                display: block;
+                overflow: hidden;
                 border-radius: 10px;
-                -webkit-transition: all 0.5s ease;
-                -ms-transition: all 0.5s ease;
-                transition: all 0.5s ease;
-                @include mixins.respond-below(custom767) {
-                    width: 100%;
+                img {
+                    border-radius: 10px;
+                    -webkit-transition: all 0.5s ease;
+                    -ms-transition: all 0.5s ease;
+                    transition: all 0.5s ease;
+                    object-fit: cover;
+                    @include mixins.respond-below(custom767) {
+                        width: 100%;
+                    }
                 }
+
             }
             &:hover {
                 img {
