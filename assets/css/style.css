@@ -5824,6 +5824,130 @@ h6 {
   }
 }
 
+.bottom-modal ul {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bottom-modal ul li {
+  position: relative;
+}
+.bottom-modal ul li a img {
+  width: 68px;
+  height: 68px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+/* Full width bottom modal */
+.bottom-modal .modal-dialog {
+  position: fixed;
+  bottom: 0;
+  margin: 0;
+  width: 100%;
+  max-width: 100%;
+  min-height: auto;
+}
+
+.bottom-modal .modal-content {
+  border-radius: 15px 15px 0 0;
+  animation: slideUp 0.5s ease-out;
+}
+.bottom-modal .modal-content .modal-body {
+  background-color: rgba(10, 14, 23, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+}
+.bottom-modal .modal-content .bi-icon-whatsapp {
+  background: #25d366;
+  color: #ffffff;
+  padding: 3px;
+  width: 23px;
+  border-radius: 5px;
+  height: 23px;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+}
+.bottom-modal .modal-content .bi-icon-phone {
+  background: #efb100;
+  color: #ffffff;
+  padding: 3px;
+  width: 23px;
+  border-radius: 5px;
+  height: 23px;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+}
+.bottom-modal .modal-content {
+  /* Custom hidden state */
+}
+.bottom-modal .modal-content .modal.hide-custom {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.bottom-modal .modal-content {
+  /* Optional: smooth transition */
+}
+.bottom-modal .modal-content .modal {
+  transition: all 0.3s ease;
+}
+
+.bottom-modal .modal-content .btn-close {
+  background-color: #efb100;
+  color: #141414;
+  opacity: 1;
+  width: 23px;
+  height: 23px;
+  position: absolute;
+  top: -23px;
+  right: 12px;
+}
+
+/* Sticky bar */
+.sticky-bar {
+  position: fixed;
+  bottom: -100px; /* hidden initially */
+  left: 0;
+  width: 100%;
+  background: #efb100;
+  color: #141414;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  z-index: 1055;
+}
+
+/* Show sticky bar */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.sticky-bar.show {
+  bottom: 0;
+  animation: pulse 1.5s infinite;
+}
+
+/* Slide animation */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 /*-----------------
     2. Typography
 -----------------------*/

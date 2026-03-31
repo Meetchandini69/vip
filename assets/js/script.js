@@ -1496,6 +1496,31 @@ Version      : 1.0
 
 	// Recommend Bike Slider 
 
+
+	document.addEventListener("DOMContentLoaded", function () {
+  const modalEl = document.getElementById('bottomModal');
+  const modal = new bootstrap.Modal(modalEl);
+  const stickyBar = document.getElementById('stickyBar');
+
+  // Show modal after 2 sec
+  setTimeout(() => {
+    modal.show();
+  }, 2000);
+
+  // Hide modal → show sticky bar
+  document.getElementById("hideModalBtn").addEventListener("click", function () {
+    modal.hide();
+    stickyBar.classList.add("show");
+  });
+
+  // Click sticky bar → show modal again
+  stickyBar.addEventListener("click", function () {
+    modal.show();
+    stickyBar.classList.remove("show");
+  });
+});
+
+
 	if($('.car-slider').length > 0) {
 		$('.car-slider').owlCarousel({
 			loop:true,
