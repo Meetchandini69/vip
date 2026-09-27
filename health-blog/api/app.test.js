@@ -1,0 +1,34 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {newDb} from 'pg-mem';
+import request from 'supertest';
+import {createApp,hashPassword} from './app.js';
+const site='http://localhost:5173';
+export async function fixture(){const memory=newDb();const {Pool}=memory.adapters.createPg();const db=new Pool();await db.query(await readFile(new URL('./schema.sql',import.meta.url),'utf8'));await db.query('INSERT INTO admins(email,password_hash) VALUES($1,$2)',['editor@example.com',hashPassword('test-password-only-123')]);return {db,app:createApp(db,{site})};}
+test('admin publishing lifecycle protects drafts, SEO, conflicts and logout',async()=>{
+ const {app,db}=await fixture(),guest=request(app),admin=request.agent(app);
+ await guest.get('/api/admin/posts').expect(401);
+ await admin.post('/api/admin/login').send({email:'editor@example.com',password:'test-password-only-123'}).expect(403);
+ await admin.post('/api/admin/login').set('Origin',site).send({email:'editor@example.com',password:'wrong'}).expect(401);
+ await admin.post('/api/admin/login').set('Origin',site).send({email:'editor@example.com',password:'test-password-only-123'}).expect(200);
+ const input={title:'Health journal',slug:'health-journal',excerpt:'General health reading',content:'First paragraph.\n\n<script>alert(1)</script>',image:'',image_alt:'',author:'Editorial team',category:'General health',meta_title:'Custom search title',meta_description:'Custom description',schema_type:'Article',status:'draft'};
+ let p=(await admin.post('/api/admin/posts').set('Origin',site).send(input).expect(200)).body;
+ assert.equal((await guest.get('/api/posts')).body.length,0);
+ await guest.get('/api/posts/health-journal').expect(404);
+ assert.equal((await guest.get('/api/render?path=/blog/health-journal')).body.status,404);
+ assert.doesNotMatch((await guest.get('/api/sitemap')).text,/health-journal/);
+ p=(await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,status:'published'}).expect(200)).body;
+ assert.ok(p.published_at);assert.equal((await guest.get('/api/posts')).body.length,1);
+ const seo=(await guest.get('/api/render?path=/blog/health-journal')).body;
+ assert.match(seo.head,/<title>Custom search title<\/title>/);assert.match(seo.head,/application\/ld\+json/);assert.match(seo.head,/"@type":"Article"/);assert.match(seo.html,/&lt;script&gt;/);assert.doesNotMatch(seo.html,/<script>/);
+ assert.match((await guest.get('/api/sitemap')).text,/health-journal/);
+ await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,version:1}).expect(409);
+ await admin.post('/api/admin/posts').set('Origin',site).send(input).expect(409);
+ await admin.post('/api/admin/posts').set('Origin',site).send({...input,slug:'javascript:bad'}).expect(400);
+ await admin.post('/api/admin/posts').set('Origin',site).send({...input,image:'javascript:alert(1)'}).expect(400);
+ await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,status:'draft'}).expect(200);
+ await guest.get('/api/posts/health-journal').expect(404);
+ await admin.post('/api/admin/logout').set('Origin',site).send({}).expect(200);
+ await admin.get('/api/admin/posts').expect(401);await db.end();
+});

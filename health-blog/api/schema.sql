@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS admins (
+ id SERIAL PRIMARY KEY, email TEXT UNIQUE NOT NULL, password_hash TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS sessions (
+ token_hash TEXT PRIMARY KEY, admin_id INTEGER NOT NULL REFERENCES admins(id), expires_at TIMESTAMPTZ NOT NULL
+);
+CREATE TABLE IF NOT EXISTS posts (
+ id SERIAL PRIMARY KEY, title TEXT NOT NULL, slug TEXT UNIQUE NOT NULL,
+ excerpt TEXT NOT NULL DEFAULT '', content TEXT NOT NULL DEFAULT '',
+ image TEXT NOT NULL DEFAULT '', image_alt TEXT NOT NULL DEFAULT '',
+ author TEXT NOT NULL DEFAULT '', category TEXT NOT NULL DEFAULT 'General health',
+ meta_title TEXT NOT NULL DEFAULT '', meta_description TEXT NOT NULL DEFAULT '',
+ schema_type TEXT NOT NULL DEFAULT 'BlogPosting',
+ status TEXT NOT NULL DEFAULT 'draft' CHECK (status IN ('draft', 'published')),
+ published_at TIMESTAMPTZ, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+ created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), version INTEGER NOT NULL DEFAULT 1
+);
