@@ -18,6 +18,9 @@ test('admin publishing lifecycle protects drafts, SEO, conflicts and logout',asy
  await guest.get('/api/posts/health-journal').expect(404);
  assert.equal((await guest.get('/api/render?path=/blog/health-journal')).body.status,404);
  assert.doesNotMatch((await guest.get('/api/sitemap')).text,/health-journal/);
+ assert.doesNotMatch((await guest.get('/api/sitemap')).text,/<loc>http:\/\/localhost:5173<\/loc>/);
+ assert.equal((await guest.get('/api/render?path=/')).body.status,404);
+ assert.equal((await guest.get('/api/render?path=/blog/')).body.status,200);
  p=(await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,status:'published'}).expect(200)).body;
  assert.ok(p.published_at);assert.equal((await guest.get('/api/posts')).body.length,1);
  const seo=(await guest.get('/api/render?path=/blog/health-journal')).body;
@@ -26,6 +29,7 @@ test('admin publishing lifecycle protects drafts, SEO, conflicts and logout',asy
  await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,version:1}).expect(409);
  await admin.post('/api/admin/posts').set('Origin',site).send(input).expect(409);
  await admin.post('/api/admin/posts').set('Origin',site).send({...input,slug:'javascript:bad'}).expect(400);
+ await admin.post('/api/admin/posts').set('Origin',site).send({...input,slug:'admin'}).expect(400);
  await admin.post('/api/admin/posts').set('Origin',site).send({...input,image:'javascript:alert(1)'}).expect(400);
  await admin.put('/api/admin/posts/'+p.id).set('Origin',site).send({...p,status:'draft'}).expect(200);
  await guest.get('/api/posts/health-journal').expect(404);

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 export const postInput = z.object({
- title:z.string().trim().min(1).max(180), slug:z.string().min(1).max(160).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+ title:z.string().trim().min(1).max(180), slug:z.string().min(1).max(160).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).refine(value=>!['admin','assets'].includes(value),'That URL slug is reserved.'),
  excerpt:z.string().trim().max(400), content:z.string().trim().max(100000),
  image:z.union([z.literal(''),z.url().refine(v=>v.startsWith('https://'),'Use an HTTPS image URL')]),
  image_alt:z.string().trim().max(200), author:z.string().trim().max(120), category:z.string().trim().min(1).max(80),
