@@ -1,2 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap');
-:root{font-family:'DM Sans',sans-serif;color:#203e35;background:#fafaf5;font-synthesis:none}*{box-sizing:border-box}body{margin:0}a{color:inherit;text-underline-offset:4px}header,main,footer{max-width:1200px;margin:auto;padding:28px 32px}header{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #dbe2d9}.brand{font:800 25px 'Manrope',sans-serif;letter-spacing:-1px;text-decoration:none}.brand span{font-weight:400;margin-left:5px}nav{display:flex;gap:28px;font-size:14px}nav a{text-decoration:none}main{min-height:65vh;padding-top:38px;padding-bottom:80px}h1,h2,h3{font-family:'Manrope',sans-serif;letter-spacing:-.04em}h1{font-size:clamp(36px,5vw,62px);line-height:1.13;margin:16px 0 24px}h2{font-size:28px}p{line-height:1.7}.hero{background:#e7eedb;border-radius:24px;padding:64px 48px;position:relative;overflow:hidden;margin-bottom:58px}.hero h1{max-width:750px;position:relative;z-index:1}.hero em{font-style:normal;color:#607b42}.hero p{max-width:470px}.hero-mark{position:absolute;right:-30px;bottom:-105px;font-size:430px;line-height:1;color:#d4dfba;pointer-events:none}.eyebrow{font-size:11px;letter-spacing:2px;font-weight:700;text-transform:uppercase}.button,button{display:inline-block;background:#244c3c;color:white;padding:13px 21px;border:1px solid #244c3c;border-radius:8px;font:600 14px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;position:relative}button:hover,.button:hover{background:#37634e}button:disabled{opacity:.6;cursor:wait}.secondary{background:transparent;color:#244c3c}.secondary:hover{background:#e7eedb}.section-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.section-heading h1,.section-heading h2{margin:0}.section-heading a{font-size:14px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.card{border:1px solid #dde3d9;border-radius:14px;overflow:hidden;background:white}.card>img,.placeholder{width:100%;height:205px;object-fit:cover}.placeholder{background:#eceddc;display:grid;place-items:center;color:#7f9360;font-size:100px}.card-body{padding:24px}.card h2{font-size:23px}.card h2 a{text-decoration:none}.card p{font-size:14px}.card small,.muted,small{color:#66776c}.page-heading{padding:24px 0 40px}.empty{padding:65px 24px;text-align:center;border:1px dashed #cbd5c4;border-radius:14px}.article{max-width:780px;margin:auto}.article h1{font-size:clamp(32px,4vw,52px)}.article>.eyebrow{margin-top:40px}.intro{font-size:21px;color:#637060}.cover{width:100%;max-height:480px;object-fit:cover;border-radius:14px;margin:25px 0}.prose{font-size:18px;line-height:1.85}.prose p{white-space:pre-wrap;overflow-wrap:anywhere}.article h1,.card h2{overflow-wrap:anywhere}footer{border-top:1px solid #dde3d9;padding-top:36px;padding-bottom:40px}footer p{font-size:13px;max-width:540px}.panel{background:white;border:1px solid #dce2d7;border-radius:14px;padding:26px}.login{max-width:440px;margin:45px auto}.login h1{font-size:32px}.admin h1{font-size:36px}.admin-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:25px}.admin-grid aside{align-self:start}label{display:block;text-transform:capitalize;font-size:14px;font-weight:600;margin:0 0 20px}input,textarea,select{display:block;width:100%;padding:12px;border:1px solid #becbbd;border-radius:6px;background:#fff;color:#203e35;font:inherit;margin-top:8px}textarea{resize:vertical;line-height:1.6}label small{display:block;font-size:12px;text-transform:none;font-weight:400;margin-top:6px}fieldset{margin:0;padding:0;border:0;min-width:0}.two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.post-list{margin-top:22px}.post-choice{display:block;background:transparent;color:#244c3c;text-align:left;width:100%;margin:8px 0;border:1px solid #e0e7dc;padding:12px;overflow-wrap:anywhere}.post-choice:hover,.post-choice.selected{background:#e7eedb}.post-choice small{display:block;margin-top:8px}.badge{background:#e7eedb;border-radius:20px;padding:5px 12px;font-size:12px}.error{background:#ffebe7;color:#9a3023;padding:14px;border-radius:8px}.notice{background:#e5f4e7;padding:14px;border-radius:8px}.search-preview{background:#fafbf8;border:1px solid #dbe2d9;padding:20px;border-radius:8px;overflow-wrap:anywhere}.search-preview h3{color:#245e91;margin:10px 0;font-size:20px}.search-preview p{margin:0;font-size:14px}.preview{border-top:2px solid #dbe2d9;margin-top:30px;padding-top:30px}:focus-visible{outline:3px solid #af7722;outline-offset:3px}@media(max-width:850px){.cards{grid-template-columns:repeat(2,1fr)}.admin-grid{grid-template-columns:1fr}.post-list{max-height:220px;overflow:auto}.hero{padding:40px 28px}.hero-mark{opacity:.4}.admin-grid aside{padding:20px}}@media(max-width:540px){header,main,footer{padding-left:20px;padding-right:20px}.brand{font-size:21px}nav{gap:14px;font-size:12px}.cards,.two-col{grid-template-columns:1fr}.hero{padding:30px 24px}.hero h1{font-size:39px}.hero-mark{display:none}.section-heading{align-items:flex-start}.section-heading h2{font-size:24px}.panel{padding:20px}.article .intro{font-size:18px}}
+/* Blog components inherit the existing Bootstrap/Fira Sans site theme. */
+.health-blog .blog-site-logo{margin:0;padding:0;flex-shrink:0}
+.health-blog .blog-site-logo img{display:block;width:210px;max-width:100%;height:auto}
+.health-blog .blog-nav{display:flex;align-items:center;gap:26px}
+.health-blog .blog-nav a{color:#fff;font-size:15px}
+.health-blog .blog-nav a:hover,.health-blog .blog-nav a[aria-current=page]{color:#efb100}
+.health-blog .breadcrumb-bar .container{position:relative;z-index:1}
+.health-blog .breadcrumb-bar p{color:#39280a;margin:0}
+.health-blog .blog-main{padding-top:60px;padding-bottom:70px;min-height:360px}
+.health-blog .blog-main p{line-height:1.75}
+.health-blog .section-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;margin:0 0 28px}
+.health-blog .section-heading h1,.health-blog .section-heading h2{margin:0}
+.health-blog .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.health-blog .card,.health-blog .panel,.health-blog .empty{background:#141821;border:1px solid #303641;border-radius:10px;color:#fff}
+.health-blog .card{overflow:hidden;margin:0}
+.health-blog .card>img,.health-blog .placeholder{width:100%;height:220px;object-fit:cover}
+.health-blog .placeholder{display:grid;place-items:center;background:#202530;color:#efb100;font-size:80px}
+.health-blog .card-body{padding:24px}
+.health-blog .card h2{font-size:24px;line-height:1.35}
+.health-blog .card h2 a{color:#fff}
+.health-blog .card h2 a:hover{color:#efb100}
+.health-blog .card p,.health-blog .card small,.health-blog .muted{color:#c4c9d2}
+.health-blog .eyebrow{color:#efb100;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:12px}
+.health-blog .empty{padding:60px 24px;text-align:center;border-style:dashed}
+.health-blog .empty h3{font-size:24px;margin-bottom:14px}
+.health-blog .empty p{color:#c4c9d2}
+.health-blog .article{max-width:850px;margin:auto}
+.health-blog .article>a{display:inline-block;color:#efb100;margin-bottom:24px}
+.health-blog .article h1{font-size:clamp(30px,4vw,44px);line-height:1.25;margin-bottom:20px}
+.health-blog .intro{font-size:20px;color:#d5d8df}
+.health-blog .cover{width:100%;max-height:480px;object-fit:cover;border-radius:10px;margin:24px 0}
+.health-blog .prose{font-size:18px;color:#e1e4e9}
+.health-blog .prose p{white-space:pre-wrap;overflow-wrap:anywhere;margin-bottom:24px}
+.health-blog .article h1,.health-blog .card h2{overflow-wrap:anywhere}
+.health-blog .footer-two{padding-top:28px}
+.health-blog .blog-health-note{color:#bfc5ce;font-size:14px;max-width:760px;margin-bottom:24px}
+.health-blog .panel{padding:26px}
+.health-blog .login{max-width:460px;margin:0 auto}
+.health-blog .login h1{font-size:32px;margin-bottom:26px}
+.health-blog .admin-grid{display:grid;grid-template-columns:270px minmax(0,1fr);gap:25px}
+.health-blog .admin-grid aside{align-self:start}
+.health-blog label{display:block;text-transform:capitalize;font-size:14px;font-weight:500;margin:0 0 20px}
+.health-blog input,.health-blog textarea,.health-blog select{display:block;width:100%;padding:12px;border:1px solid #596270;border-radius:6px;background:#0a0e17;color:#fff;font:inherit;margin-top:8px;color-scheme:dark}
+.health-blog input::placeholder,.health-blog textarea::placeholder{color:#9ea9b8;opacity:1}
+.health-blog textarea{resize:vertical;line-height:1.6}
+.health-blog label small{display:block;color:#bcc4cf;font-size:12px;text-transform:none;font-weight:400;margin-top:6px}
+.health-blog fieldset{margin:0;padding:0;border:0;min-width:0}
+.health-blog button{background:#efb100;color:#111;padding:12px 20px;border:1px solid #efb100;border-radius:6px;font:600 14px "Fira Sans",sans-serif;cursor:pointer}
+.health-blog button:hover{background:#ffcb36}
+.health-blog button:disabled{opacity:.6;cursor:wait}
+.health-blog .secondary{background:transparent;color:#efb100}
+.health-blog .secondary:hover{background:#302919}
+.health-blog .two-col{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.health-blog .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.health-blog .post-list{margin-top:22px}
+.health-blog .post-choice{display:block;background:transparent;color:#fff;text-align:left;width:100%;margin:8px 0;border:1px solid #3e4856;padding:12px;overflow-wrap:anywhere}
+.health-blog .post-choice:hover,.health-blog .post-choice.selected{background:#302919;border-color:#efb100}
+.health-blog .post-choice small{display:block;color:#c4c9d2;margin-top:8px}
+.health-blog .badge{background:#302919;color:#ffcf4b;border-radius:20px;padding:7px 12px;font-size:12px;white-space:normal}
+.health-blog .error{background:#402020;color:#ffd4cc;padding:14px;border-radius:8px}
+.health-blog .notice{background:#183c29;color:#c5f3d4;padding:14px;border-radius:8px}
+.health-blog .search-preview{background:#0a0e17;border:1px solid #3e4856;padding:20px;border-radius:8px;overflow-wrap:anywhere}
+.health-blog .search-preview small{color:#bec8d5}
+.health-blog .search-preview h3{color:#9dcaff;margin:10px 0;font-size:20px}
+.health-blog .search-preview p{color:#c4c9d2;margin:0;font-size:14px}
+.health-blog .preview{border-top:2px solid #3e4856;margin-top:30px;padding-top:30px}
+.health-blog :focus-visible{outline:3px solid #efb100;outline-offset:4px}
+@media(max-width:991px){.health-blog .cards{grid-template-columns:repeat(2,minmax(0,1fr))}.health-blog .admin-grid{grid-template-columns:1fr}.health-blog .post-list{max-height:240px;overflow:auto}}
+@media(max-width:575px){.health-blog .blog-site-logo img{width:145px}.health-blog .blog-nav{gap:12px}.health-blog .blog-nav a{font-size:12px}.health-blog .blog-main{padding-top:36px;padding-bottom:40px}.health-blog .cards,.health-blog .two-col{grid-template-columns:1fr}.health-blog .section-heading{align-items:flex-start;flex-wrap:wrap}.health-blog .panel{padding:18px}.health-blog .empty{padding:40px 20px}.health-blog .intro{font-size:18px}.health-blog .header .header-nav{height:auto;min-height:75px;gap:12px;padding:12px 0}.health-blog .footer-two .copy-right{gap:14px;flex-wrap:wrap}}
